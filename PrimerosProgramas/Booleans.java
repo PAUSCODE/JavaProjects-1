@@ -14,7 +14,8 @@ public class Booleans {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+         boolean intsCanHoldDecimals = false;
+    System.out.println(intsCanHoldDecimals);
     }
     
 }
