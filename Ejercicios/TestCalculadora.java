@@ -1,7 +1,7 @@
 
 public class TestCalculadora {
 
-    Public TestCalculadora ()
+    public TestCalculadora ()
         System.out.println("Soy el constructor de TestCalculadora")
     
     public static void main (String[]args){
