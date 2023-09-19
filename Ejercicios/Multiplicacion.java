@@ -1,11 +1,11 @@
 public class Multiplicacion {
     Usuario objUsuario=new Usuario();
 
-    Public Multiplicacion ()
+    Public Multiplicacion (){
         System.out.println("Soy el constructor de Multiplicacion")
-
-    
-    public int multiplicar(){
+}
+    public void setMultiplicacion (int pMultiplicacion){
+        this.pMultiplicacion = pMultiplicacion;
         return objUsuario.pedirNumero()*objUsuario.pedirNumero();
     }
     
