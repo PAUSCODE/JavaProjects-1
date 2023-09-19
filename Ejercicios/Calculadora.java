@@ -4,6 +4,9 @@ public class Calculadora {
     private Resta objResta= new Resta();
     private Multiplicacion objMultiplicacion= new Multiplicacion();
     private Usuario objUsuario = new Usuario();
+
+    Public Calculadora ()
+        System.out.println("Soy el constructor de Calculadora")
     
     public void operaciones(){
         System.out.println("1. Suma");
