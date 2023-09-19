@@ -1,6 +1,9 @@
 
 public class Suma {
     Usuario objUsuario=new Usuario();
+
+    Public Suma ()
+        System.out.println("Soy el constructor de Suma")
     
     public int sumar(){
         return objUsuario.pedirNumero()+objUsuario.pedirNumero();
