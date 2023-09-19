@@ -3,6 +3,7 @@ public class Multiplicacion {
 
     Public Multiplicacion ()
         System.out.println("Soy el constructor de Multiplicacion")
+
     
     public int multiplicar(){
         return objUsuario.pedirNumero()*objUsuario.pedirNumero();
