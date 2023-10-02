@@ -1,0 +1,11 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class Usuario {
+    public int solicitarPiso() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite el piso al que se dirige entre el 1 y el 7: ");
+        int piso = scanner.nextInt();
+        return piso;
+    }
+}
