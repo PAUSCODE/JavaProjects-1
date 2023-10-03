@@ -3,6 +3,9 @@ import java.util.Random;
 public class Ascensor {
 
   private int pisoActual;
+  public final int PISO_MAXIMO;
+  public final int PISO_MAXIMO;
+}
     public Ascensor() {
         Random random = new Random();
         pisoActual = random.nextInt(7) + 1;
@@ -11,9 +14,6 @@ public class Ascensor {
     public int getPisoActual() {
         return pisoActual;
 }
-
-  public final int PISO_MAXIMO;
-  public final int PISO_MAXIMO;
 
   public Ascensor(int max, int min)
     PISO_MAXIMO=max
