@@ -9,4 +9,17 @@ public class Ascensor {
     pisoActual=PISO_MINIMO
 }
 
-public void subirPiso
+public void subirPiso(){
+  if (pisoActual>=PISO_MINIMO)
+    pisoActual++;
+}
+
+public void bajarPiso(){
+  if (pisoActual<=PISO_MAXIMO)
+    pisoActual--;
+}
+
+public int getPisoActual(){
+  return pisoActual;
+}
+
