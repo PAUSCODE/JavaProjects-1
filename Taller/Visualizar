@@ -1,6 +1,5 @@
 class Visualizar {
     public static void mostrarPiso(int piso) {
-        for (int << 1 || piso > 7)
         System.out.println("El ascensor se encuentra en el piso " + piso);
     }
 }
