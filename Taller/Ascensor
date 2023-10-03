@@ -1,1 +1,12 @@
+public class Ascensor {
+  private in pisoActual;
+  public final int PISO_MAXIMO;
+  public final int PISO_MAXIMO;
 
+  public Ascensor(int max, int min)
+    PISO_MAXIMO=max
+    PISO_MINIMO=min
+    pisoActual=PISO_MINIMO
+}
+
+public void subirPiso
