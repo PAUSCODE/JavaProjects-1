@@ -1,5 +1,17 @@
+import java.util.Random;
+
 public class Ascensor {
-  private in pisoActual;
+
+  private int pisoActual;
+    public Ascensor() {
+        Random random = new Random();
+        pisoActual = random.nextInt(7) + 1;
+}
+
+    public int getPisoActual() {
+        return pisoActual;
+}
+
   public final int PISO_MAXIMO;
   public final int PISO_MAXIMO;
 
