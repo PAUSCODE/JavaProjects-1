@@ -1,37 +1,39 @@
-import java.util.Random;
+class Ascensor {
+    private int pisoActual;
+    private StringBuilder recorrido;
 
-public class Ascensor {
-
-  private int pisoActual;
-  public final int PISO_MAXIMO;
-  public final int PISO_MAXIMO;
-}
     public Ascensor() {
+        
         Random random = new Random();
-        pisoActual = random.nextInt(7) + 1;
-}
+        pisoActual = (random.nextInt(3) + 2) * 2;
+        recorrido = new StringBuilder("Recorrido: " + pisoActual);
+    }
 
     public int getPisoActual() {
         return pisoActual;
-}
+    }
 
-  public Ascensor(int max, int min)
-    PISO_MAXIMO=max
-    PISO_MINIMO=min
-    pisoActual=PISO_MINIMO
-}
+    public String moverA(int pisoDestino) {
+        if (pisoDestino < 2 || pisoDestino > 6 || pisoDestino % 2 != 0) {
+            return "Piso no válido. Debe ser un número par entre 2 y 6.";
+        }
 
-public void subirPiso(){
-  if (pisoActual>=PISO_MINIMO)
-    pisoActual++;
-}
+        StringBuilder resultado = new StringBuilder();
 
-public void bajarPiso(){
-  if (pisoActual<=PISO_MAXIMO)
-    pisoActual--;
-}
+        while (pisoActual != pisoDestino) {
+            if (pisoActual < pisoDestino) {
+                pisoActual += 2; 
+            } else {
+                pisoActual -= 2; 
+            }
+            resultado.append(" -> ").append(pisoActual);
+        }
 
-public int getPisoActual(){
-  return pisoActual;
-}
+        recorrido.append(resultado);
+        return resultado.toString();
+    }
 
+    public String getRecorrido() {
+        return recorrido.toString();
+    }
+}
