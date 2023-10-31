@@ -1,1 +1,21 @@
+public class Cuadrado {
+    private double lado;
 
+    public Cuadrado(double lado) {
+        this.lado = lado;
+    }
+
+    public double area() {
+        return this.lado * this.lado;
+    }
+
+    public double perimetro() {
+        return this.lado * 4;
+    }
+
+    public static void main(String[] args) {
+        Cuadrado cuadrado = new Cuadrado(12);
+        System.out.println("Area del cuadrado: " + cuadrado.area());
+        System.out.println("Perímetro del cuadrado: " + cuadrado.perimetro());
+    }
+}
