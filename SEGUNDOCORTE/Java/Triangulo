@@ -1,1 +1,25 @@
+public class Triangulo {
+    private double base;
+    private double altura;
+    private double hipotenusa;
 
+    public Triangulo(double base, double altura, double hipotenusa) {
+        this.base = base;
+        this.altura = altura;
+        this.hipotenusa = hipotenusa;
+    }
+
+    public double area() {
+        return (this.base * this.altura) / 2;
+    }
+
+    public double perimetro() {
+        return this.base + this.altura + this.hipotenusa;
+    }
+
+    public static void main(String[] args) {
+        Triangulo triangulo = new Triangulo(8, 6, 10);
+        System.out.println("Area del triángulo: " + triangulo.area());
+        System.out.println("Perímetro del triángulo: " + triangulo.perimetro());
+    }
+}
