@@ -1,0 +1,16 @@
+class  Rectangulo:
+
+    def __init__(self,largo):
+        self.largo = largo
+    def __init__(self,ancho):
+        self.ancho = ancho
+    
+    def area(self):
+        return self.largo * self.ancho
+    
+    def perimetro(self):
+        return (self.largo + self.ancho)*2
+    
+rectangulo = Rectangulo(12)
+print("Area del rectangulo: ", rectangulo.area())
+print("Perimetro del rectangulo: ", rectangulo.perimetro())
