@@ -11,6 +11,6 @@ class  Rectangulo:
     def perimetro(self):
         return (self.largo + self.ancho)*2
     
-rectangulo = Rectangulo(12)
+rectangulo = Rectangulo(12 , 6)
 print("Area del rectangulo: ", rectangulo.area())
 print("Perimetro del rectangulo: ", rectangulo.perimetro())
