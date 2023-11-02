@@ -1,0 +1,40 @@
+#include <Adafruit_TCS34725.h>
+#include <Servo.h>
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS,TCS34725_GAIN_4X);
+Servo miservo;
+
+void setup() {
+
+Serial.begin(115200);
+tcs.begin();
+miservo.attach(9);
+}
+
+void loop() {
+
+float red, green, blue;
+tcs.getRGB(&red, &green, &blue);
+int R = int(red);
+int R = int(red);
+int R = int(red);
+String color = "";
+  if ((R-G>50) & (R-B>50)){
+    color = "Rojo";
+    miservo.write(30);
+  }
+  if ((G-B>10) & (G-R>30)){
+    color = "Verde";
+    miservo.write(90);
+  }
+  if ((B-G>20) & (G-B>40)){
+    color = "Azul";
+    miservo.write(150);
+  }
+   if ((R-B>40) & (G-B>40)){
+    color = "Amarillo";
+  }
+Serial.print("R: "); Serial.print(int(red));
+Serial.print("  G: "); Serial.print(int(green));
+Serial.print("  B: "); Serial.print(int(blue));
+Serial.println();
+}
