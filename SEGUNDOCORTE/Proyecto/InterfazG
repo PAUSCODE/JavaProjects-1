@@ -1,0 +1,109 @@
+import com.fazecast.jSerialComm.SerialPort;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.InputStream;
+
+public class ArduinoSerialReaderGUI {
+    private static JLabel rojoLabel, azulLabel, verdeLabel, moradoLabel;
+    private static SerialPort port; // Declara el objeto SerialPort como un campo de clase
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            createAndShowGUI();
+        });
+
+        SerialPort[] ports = SerialPort.getCommPorts();
+        if (ports.length == 0) {
+            System.out.println("No se encontraron puertos seriales.");
+            return;
+        }
+
+        port = ports[0]; // Puedes cambiar esto según tu configuración.
+        port.setBaudRate(9600);
+
+        if (port.openPort()) {
+            System.out.println("Puerto serial abierto correctamente.");
+
+            InputStream in = port.getInputStream();
+
+            try {
+                while (true) {
+                    if (in.available() > 0) {
+                        char c = (char) in.read();
+                        processSerialData(c);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error al abrir el puerto serial.");
+        }
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("Arduino Serial Reader GUI");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        rojoLabel = new JLabel("Rojo: 0");
+        azulLabel = new JLabel("Azul: 0");
+        verdeLabel = new JLabel("Verde: 0");
+        moradoLabel = new JLabel("Morado: 0");
+
+        JButton closeButton = new JButton("Cerrar Puerto Serial");
+
+        panel.add(rojoLabel);
+        panel.add(azulLabel);
+        panel.add(verdeLabel);
+        panel.add(moradoLabel);
+        panel.add(closeButton);
+
+        frame.add(panel, BorderLayout.CENTER);
+
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (port.closePort()) {
+                    System.out.println("Puerto serial cerrado correctamente.");
+                } else {
+                    System.out.println("Error al cerrar el puerto serial.");
+                }
+            }
+        });
+
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+
+    private static void processSerialData(char c) {
+        SwingUtilities.invokeLater(() -> {
+            switch (c) {
+                case 'R':
+                    updateLabel(rojoLabel);
+                    break;
+                case 'A':
+                    updateLabel(azulLabel);
+                    break;
+                case 'V':
+                    updateLabel(verdeLabel);
+                    break;
+                case 'M':
+                    updateLabel(moradoLabel);
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
+
+    private static void updateLabel(JLabel label) {
+        String text = label.getText();
+        int count = Integer.parseInt(text.split(":")[1].trim());
+        count++;
+        label.setText(label.getText().split(":")[0] + ": " + count);
+    }
+}
