@@ -15,8 +15,8 @@ void loop() {
 float red, green, blue;
 tcs.getRGB(&red, &green, &blue);
 int R = int(red);
-int R = int(red);
-int R = int(red);
+int G = int(green);
+int B = int(blue);
 String color = "";
   if ((R-G>50) & (R-B>50)){
     color = "Rojo";
